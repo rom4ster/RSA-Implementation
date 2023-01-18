@@ -1,0 +1,8 @@
+*.o
+*.txt
+rsa
+test.c
+test.h
+makefile
+*.swp
+

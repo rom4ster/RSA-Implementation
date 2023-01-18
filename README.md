@@ -1,4 +1,57 @@
 # RSA Implementation in C
+
+
+These files are not my own creation but rather I have modified them for use as a library, please see original here 
+
+https://github.com/yigitusta/RSA-Implementation
+
+
+Follow the original compilation instructions for rsa.c ```bash
+gcc rsa.c -o rsa
+``` 
+
+To compile encrypt_text and decrypt_text as library use 
+
+```bash
+gcc -c -o encrypt_text.o encrypt_text.c
+gcc -c -o decrypt_text.o decrypt_text.c
+```
+
+Linking these libraries with your own .o file can be done using 
+```bash
+gcc -o <source_file_compiled>.o encrypt_text.o decrypt_text.o
+```
+
+gcc generated -o files should be compatible with g++ however using g++ to compile the library is not tested
+
+To use library utilize the following functions
+
+```c
+
+char *  decrypt_text(char * text, int n, int d, int p, int q);
+
+char * encrypt_text(char * text, int n , int e);
+
+```
+
+Running the rsa program will generate files with values that will be of use with this library
+
+private.txt will contain n and d in that order for decrypt_text
+
+pq.txt will contain p and q in that order for decrypt_text
+
+public.txt will contain n and e in that order for encrypt_text
+
+
+
+The original content of this readme is preserved. 
+It is highly suggested to read through and understand the original nature of the program.
+It is also recommended that for any serious application, a proper crypto library is used. 
+
+
+ORIGINAL CONTENT
+
+
 Probably the most inefficient rsa algorithm out there. I programmed this in couple of days during Linux Summer Camp 2016 (Turkey).
 
 Consists of three parts.

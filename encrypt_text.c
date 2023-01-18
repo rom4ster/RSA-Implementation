@@ -1,7 +1,12 @@
 #include "stdio.h"
 #include "stdlib.h"
+#include <string.h>
+#include "encrypt_text.h"
 
-unsigned long long int modpow(int base, int power, int mod)
+
+
+
+static unsigned long long int modpow(int base, int power, int mod)
 {
         int i;
         unsigned long long int result = 1;
@@ -12,7 +17,7 @@ unsigned long long int modpow(int base, int power, int mod)
         return result;
 }
 
-int main (int argc, char *argv[])
+/*int main (int argc, char *argv[])
 {
         int m, n, e;
         unsigned long long int c;
@@ -37,4 +42,23 @@ int main (int argc, char *argv[])
         fclose(outp);
 
         return 0;
+}*/
+
+
+
+char * encrypt_text(char * text, int n , int e) {
+
+
+unsigned long long int c;
+
+  char * buf = malloc(strlen(text) * (sizeof(unsigned long long int) + 1));
+  int len = 0;
+  for (int i = 0; text[i] != '\0'; i++)
+	{
+        	c = modpow(text[i],e,n);
+		len += sprintf(buf + len, "%llu\n", c);
+	}
+
+  return buf;
+
 }
