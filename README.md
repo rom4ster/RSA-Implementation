@@ -6,7 +6,8 @@ These files are not my own creation but rather I have modified them for use as a
 https://github.com/yigitusta/RSA-Implementation
 
 
-Follow the original compilation instructions for rsa.c ```bash
+Follow the original compilation instructions for rsa.c 
+```bash
 gcc rsa.c -o rsa
 ``` 
 
